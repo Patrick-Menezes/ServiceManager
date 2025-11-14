@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "ServiceManager.OrderServiceController",
+    "Method": "Create",
+    "RelativePath": "api/OrderService",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "service",
+        "Type": "ServiceManager.Model.OrderService",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
