@@ -9,6 +9,7 @@ namespace ServiceManager.Model
         {
         }
 
+
         public int Id { get; set; }
         [Required]
        public string ClientName {  get; set; }
@@ -21,6 +22,7 @@ namespace ServiceManager.Model
         {
             Id = id;
             ClientName = clientName ?? throw new ArgumentNullException(nameof(clientName));
+
             Description = description ?? throw new ArgumentNullException(nameof(description));
             Status = status;
             CreatAt = creatAt;

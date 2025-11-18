@@ -135,3 +135,4 @@ E:\trabalho\ServiceManager\Backend\ServiceManager\obj\Debug\net8.0\ServiceManage
 E:\trabalho\ServiceManager\Backend\ServiceManager\obj\Debug\net8.0\ServiceManager.genruntimeconfig.cache
 E:\trabalho\ServiceManager\Backend\ServiceManager\obj\Debug\net8.0\ref\ServiceManager.dll
 E:\trabalho\ServiceManager\Backend\ServiceManager\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\trabalho\ServiceManager\Backend\ServiceManager\obj\Debug\net8.0\ServiceManager.sourcelink.json
