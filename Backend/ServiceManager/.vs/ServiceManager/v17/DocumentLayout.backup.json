@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "E:\\trabalho\\ServiceManager\\Backend\\ServiceManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D2040DFB-99C1-48AD-B66D-EB5B7B35A4D8}|ServiceManager.csproj|e:\\trabalho\\servicemanager\\backend\\servicemanager\\controllers\\orderservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D2040DFB-99C1-48AD-B66D-EB5B7B35A4D8}|ServiceManager.csproj|solutionrelative:controllers\\orderservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D2040DFB-99C1-48AD-B66D-EB5B7B35A4D8}|ServiceManager.csproj|e:\\trabalho\\servicemanager\\backend\\servicemanager\\model\\orderupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D2040DFB-99C1-48AD-B66D-EB5B7B35A4D8}|ServiceManager.csproj|solutionrelative:model\\orderupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D2040DFB-99C1-48AD-B66D-EB5B7B35A4D8}|ServiceManager.csproj|e:\\trabalho\\servicemanager\\backend\\servicemanager\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D2040DFB-99C1-48AD-B66D-EB5B7B35A4D8}|ServiceManager.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrderUpdateDTO.cs",
-              "DocumentMoniker": "E:\\trabalho\\ServiceManager\\Backend\\ServiceManager\\Model\\OrderUpdateDTO.cs",
-              "RelativeDocumentMoniker": "Model\\OrderUpdateDTO.cs",
-              "ToolTip": "E:\\trabalho\\ServiceManager\\Backend\\ServiceManager\\Model\\OrderUpdateDTO.cs",
-              "RelativeToolTip": "Model\\OrderUpdateDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T18:23:44.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OrderServiceController.cs",
-              "DocumentMoniker": "E:\\trabalho\\ServiceManager\\Backend\\ServiceManager\\Controllers\\OrderServiceController.cs",
-              "RelativeDocumentMoniker": "Controllers\\OrderServiceController.cs",
-              "ToolTip": "E:\\trabalho\\ServiceManager\\Backend\\ServiceManager\\Controllers\\OrderServiceController.cs",
-              "RelativeToolTip": "Controllers\\OrderServiceController.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAAHoAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T14:09:33.066Z",
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\trabalho\\ServiceManager\\Backend\\ServiceManager\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "E:\\trabalho\\ServiceManager\\Backend\\ServiceManager\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-19T21:49:06.024Z",
               "EditorCaption": ""
             }
           ]
