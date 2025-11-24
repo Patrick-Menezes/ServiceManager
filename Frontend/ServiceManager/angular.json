@@ -5,7 +5,21 @@
   "projects": {
     "ServiceManager": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -59,16 +73,18 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "ServiceManager:build:production"
-            },
-            "development": {
-              "buildTarget": "ServiceManager:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
+         "builder": "@angular/build:dev-server",
+  "configurations": {
+    "production": {
+      "buildTarget": "ServiceManager:build:production"
+    },
+    "development": {
+      "buildTarget": "ServiceManager:build:development",
+     
+      "proxyConfig": "proxy.conf.json" 
+    }
+  },
+  "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
