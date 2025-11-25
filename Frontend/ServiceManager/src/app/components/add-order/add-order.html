@@ -1,0 +1,27 @@
+<form [formGroup]=" NewOrderForm" (ngSubmit)=" onSubmit() ">
+  <div>
+    <label for="ClientName">Client Name:</label>
+    <input id="ClientName" formControlName="ClientName" />
+  </div>
+  <div>
+    <label for="Description">Service Description:</label>
+    <input id="Description" formControlName="Description" />
+  </div>
+  <div>
+    <label for="CreatAt">Service Date:</label>
+    <input id="CreatAt" type="date" formControlName="CreatAt" />
+  </div>
+  <div>
+    <label for="orderStatus">Status:</label>
+    <select id="orderStatus" formControlName="orderStatus">
+      <option value="1">Pending</option>
+      <option value="2">In Progress</option>
+      <option value="3">Completed</option>
+    </select>
+  </div>
+  <button type="submit" [disabled]=" NewOrderForm.invalid ">Add Order</button>
+
+
+
+
+

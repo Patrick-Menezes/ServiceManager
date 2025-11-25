@@ -2,7 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError,Observable } from 'rxjs'; 
 import { IserviceManager } from '../interface/IOrderServiceManager';
-
+// componente standalone
+standalone :true;
 
 @Injectable({
   providedIn: 'root',

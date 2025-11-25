@@ -1,36 +1,45 @@
-<nav>
-  <li routerLink="/" style="cursor:pointer">Home</li>
-    <li routerLink="/AddOrder" style="cursor:pointer">Adicionar Ordem de Serviço</li>
-  <li></li>
+<h1>Home</h1>
 
-</nav>
-
-
-<div class="orlders">  
-@if(ServiceManagerList.length>=0 ){
-
-
-   @for (Orders of ServiceManagerList;track Orders.id) {
-
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title">Order ID: {{Orders.id}}</h5>
-      <h5 class="card-text">Cliente: {{Orders.clientName}}</h5>
-      <p class="card-text">Descrição: {{Orders.description}}</p>
-      <p class="card-text">Status: {{Orders.status}}</p>
-      <p class="card-text">Abertura: {{Orders.creatAt }}</p>
-    </div>
-  </div>}
-
-}
+@if (ServiceManagerList$ | async; as OrdersList) {
+  <div class="orlders">  
     
-</div>
+    @if (OrdersList.length > 0) {
+      
+      @for (Orders of OrdersList; track Orders.id) 
+      {
+        <div class="card mb-3">
+          <div class="card-body">
+            
+            <h5 class="card-title">Order ID: {{ Orders.id }}</h5>
+            <h5 class="card-text">Cliente: {{ Orders.clientName }}</h5>
+            <p class="card-text">Descrição: {{ Orders.description }}</p>
+            
+            <p class="card-text">Status: 
+              @switch(Orders.status) {
+                @case(1) {
+                  <span class="badge bg-primary">Aberto</span>
+                }
+                @case(2) {
+                  <span class="badge bg-warning text-dark">Em Progresso</span>
+                }
+                @case(3) {
+                  <span class="badge bg-success">Finalizado</span>
+                }
+                @default {
+                  <span class="badge bg-secondary">Desconhecido</span>
+                }
+              }
 
-
-
-
- 
-
-
-
-
+              
+            </p>
+            </div>
+          </div>
+        }
+      } @else {
+      <p>Nenhum pedido encontrado.</p>
+    }
+    
+  </div>
+} @else {
+  <p>Carregando pedidos...</p>
+}

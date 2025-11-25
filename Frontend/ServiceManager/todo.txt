@@ -1,4 +1,4 @@
--resolver rotas
+-resolver rotas    = done
 -page include
 -page delete
 -page update

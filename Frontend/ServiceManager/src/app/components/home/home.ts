@@ -1,28 +1,38 @@
 import { Component,inject,OnInit,OnDestroy } from '@angular/core';
 import{ ConectionService } from '../../services/conection-service';
 import { IserviceManager } from '../../interface/IOrderServiceManager';
-import { error } from 'console';
-import { Subject, takeUntil } from 'rxjs';
-import { DatePipe } from '@angular/common';
-import { RouterOutlet } from "@angular/router";
+import { Subject, takeUntil ,Observable} from 'rxjs';
+import{AsyncPipe} from '@angular/common';
+
+
+// componente standalone
+standalone :true;
 
 @Component({
   selector: 'app-home',
-
+imports: [AsyncPipe],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
+
   
 })
 export class Home implements OnInit, OnDestroy {
 
+
+
+
   private conectionService = inject(ConectionService);
   
-  readonly Orders = this.GetOrders();
+ServiceManagerList$!: Observable<IserviceManager[]>;
 
-
- ServiceManagerList: IserviceManager[]=[];
 OrderService!: IserviceManager;
+
 private readonly destroy$ : Subject<void> = new Subject();
+
+
+
+
+
 
 
   ngOnInit(): void {
@@ -32,10 +42,14 @@ private readonly destroy$ : Subject<void> = new Subject();
 
 //get all orders
  GetOrders():void{
-  this.conectionService.GetOrderList().subscribe({
+
+
+this.ServiceManagerList$ = this.conectionService.GetOrderList();
+
+  this.conectionService.GetOrderList().pipe(takeUntil(this.destroy$)).subscribe({
       next:(response)=>{
-        response &&(this.ServiceManagerList=response);
-        console.log(this.ServiceManagerList);
+      
+    console.log("Dados recebidos e prontos para o template:", response);
 
        },
       error:(error)=> { console.log(error);  }
@@ -43,20 +57,13 @@ private readonly destroy$ : Subject<void> = new Subject();
   
  }
 
- GetServiceOrder(inicialId:Number):void{
-  this.conectionService.GetOrder(inicialId).pipe(takeUntil(this.destroy$))
-  .subscribe({
 
-      next:(response)=>{
-        response &&(this.OrderService=response);
-        console.log(this.OrderService);
 
-       },
 
-      error:(error)=> { console.log(error);  }
-  })
 
- }
+
+
+
 
 
 
