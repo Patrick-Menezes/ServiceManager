@@ -12,27 +12,45 @@ export class AddOrder {
 
   private conectionService = inject(ConectionService);
 
+
+
   NewOrderForm = new FormGroup({
     ClientName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     Description: new FormControl('', [Validators.required, Validators.minLength(5)]),
     CreatAt: new FormControl('', Validators.required),
     orderStatus: new FormControl('', Validators.required)
   });
+  
 
-onSubmit(): void {
+
+
+addOrder(): void {
   if (this.NewOrderForm.valid) {
-
-    console.log('Formulário válido enviado:', this.NewOrderForm.value);}
-    else {console.log('Formulário inválido. Por favor, verifique os campos preenchidos.')
-
-    };
+  
+      this.conectionService.CreateOrder(this.NewOrderForm.value as IserviceManager).subscribe
+  ({next: (response) => {
+        console.log('Order successfully created:', response);
+        this.NewOrderForm.reset();
+      },
+      error: (error) => {
+        console.error('Error creating order:', error);
+      },complete: () => {
+        console.log('Create order request completed.');
+      }
+    });
+    
+     
+    console.log('Tentativa de adicionar novo pedido:', this.NewOrderForm.value);
+    } else {
+      console.log('Formulário inválido. Não foi possível adicionar o pedido.');
+    }
+      
   }
 
 
-
-
-
-
-
-
 }
+
+
+
+
+

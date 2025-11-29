@@ -6,7 +6,7 @@ import { MenuItem } from "../menu-item/menu-item";
   selector: 'app-page',
   imports: [RouterOutlet, MenuItem],
   templateUrl: './page.html',
-  styleUrl: './page.scss',
+ 
 })
 export class Page {
 
