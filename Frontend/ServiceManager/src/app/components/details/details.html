@@ -1,6 +1,6 @@
-<p>details works!</p>
+<h1>details works!</h1>
 
-
+{{MesageResponse}}
 
 @if (OrderDetail$| async; as orderDetails) {
   <div class="card">
@@ -24,8 +24,29 @@
           }
         }
       </p>
+
+      <button class="btn btn-secondary me-2" >Editar Pedido</button>
+
+     @if(CanDelete) {
+          <h3>Deseja realmente deletar esta orderm de serviço?</h3>
+        <button class="btn btn-danger" (click)="DeleteOrder(orderDetails.id)">Confirmar</button>
+        <button class="btn btn-secondary ms-2" (click)="toggleDeleteConfirmation(false)">Cancelar</button>
+     }@else{
+        <button class="btn btn-danger" (click)="toggleDeleteConfirmation(true)">Excluir Pedido</button>
+     }
+
+
+
     </div>
   </div>
 } @else {
   <p>Carregando detalhes do pedido...</p>
+
+
+
+
+
+
 }
+
+

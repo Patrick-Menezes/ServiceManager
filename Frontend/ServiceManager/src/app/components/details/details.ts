@@ -4,6 +4,7 @@ import{ ConectionService } from '../../services/conection-service';
 import { IserviceManager } from '../../interface/IOrderServiceManager';
 import{AsyncPipe} from '@angular/common';
 import { Observable, switchMap } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-details',
   imports: [AsyncPipe],
@@ -13,10 +14,13 @@ import { Observable, switchMap } from 'rxjs';
 export class Details implements OnInit {
 
 
-constructor (private route: ActivatedRoute, private conectionService: ConectionService) { }
-
-OrderDetail$!: Observable<IserviceManager>;
-
+constructor (private route: ActivatedRoute, private conectionService: ConectionService,private router:Router) { }
+MesageResponse!: string;
+OrderDetail$!: Observable<IserviceManager>; 
+CanDelete:boolean = false;
+  toggleDeleteConfirmation(value: boolean) {
+    this.CanDelete = value;
+  }
 
 
 ngOnInit(): void {
@@ -37,6 +41,39 @@ throw new Error('ID do pedido não encontrado na rota.');
 
 
 }
+
+
+
+
+DeleteOrder(id: number): void { 
+ this.MesageResponse = 'Pedido excluído com sucesso.';
+  this.conectionService.DeteleOrder(id).subscribe({
+    next: (response) => {
+      
+     
+       
+      
+      setTimeout(() => {
+      console.log('Exclusão concluída. Botão ativado novamente.');  
+    this.router.navigate(['/Home']);
+     this.MesageResponse = '';
+    }, 2000);
+      
+      
+
+
+    },
+    error: (error) => {
+      console.error('Erro ao deletar o pedido:', error);
+    }
+  });
+}
+
+
+
+
+ 
+  
 
 
 }
