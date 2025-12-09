@@ -48,8 +48,8 @@ UpdateOrder(order:any):Observable<any>{
 }
 
 // Update order patch
-PatchOrder(order:any):Observable<any>{
-  return this._http.patch('https://localhost:7138/api/OrderService/',order);
+PatchOrder(Id:Number ,order:any):Observable<any>{
+  return this._http.patch('https://localhost:7138/api/OrderService/'+Id,order);
 }
 
 

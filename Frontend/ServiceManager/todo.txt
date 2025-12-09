@@ -1,6 +1,15 @@
--resolver rotas    = done
--page include
--page delete
--page update
--customize
+-resolver rotas    = DONE
+-page include      = DONE
+-page delete       = DONE
+-page update       = DONE
+-customize         =
  
+
+
+
+
+     Atualizar
+ -criar pagina de atualizar =Done
+ -redirecionamento na pagina de detalhes =DONE
+ -formulario recebendo dados = DONE
+ -metodo enviando dados para API/ redirecionamento de volta para detalhes= Com erro

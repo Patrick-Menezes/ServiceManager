@@ -1,0 +1,33 @@
+<form [formGroup]="NewOrderForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="clientName">Client Name:</label>
+    <!-- formControlName="clientName" -->
+    <input id="clientName" formControlName="clientName" />
+  </div>
+  <div>
+    <label for="description">Service Description:</label>
+     <!-- formControlName="description" -->
+    <input id="description" formControlName="description" />
+  </div>
+  <div>
+    <label for="creatAt">Service Date:</label>
+     <!-- formControlName="creatAt" -->
+    <input id="creatAt" type="date" formControlName="creatAt" />
+  </div>
+  <div>
+    <label for="status">Status:</label>
+    <!-- formControlName="status" -->
+    <select id="status" formControlName="status">
+      <!-- Mapeando as opções do enum para o select -->
+  
+      <!-- Alternativa simples se preferir codificar manualmente: -->
+      
+      <option value="1">Open</option>
+      <option value="2">InProgress</option>
+      <option value="3">Finished</option> 
+      
+    </select>
+  </div>
+  
+  <button type="submit" >Salvar Alterações</button>
+</form>

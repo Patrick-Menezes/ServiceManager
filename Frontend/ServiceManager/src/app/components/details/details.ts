@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import{ ConectionService } from '../../services/conection-service';
 import { IserviceManager } from '../../interface/IOrderServiceManager';
 import{AsyncPipe} from '@angular/common';
@@ -7,11 +7,12 @@ import { Observable, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-details',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, RouterLink],
   templateUrl: './details.html',
 
 })
 export class Details implements OnInit {
+
 
 
 constructor (private route: ActivatedRoute, private conectionService: ConectionService,private router:Router) { }
@@ -40,10 +41,9 @@ throw new Error('ID do pedido não encontrado na rota.');
     );
 
 
+    
+
 }
-
-
-
 
 DeleteOrder(id: number): void { 
  this.MesageResponse = 'Pedido excluído com sucesso.';
@@ -68,12 +68,5 @@ DeleteOrder(id: number): void {
     }
   });
 }
-
-
-
-
- 
-  
-
 
 }
