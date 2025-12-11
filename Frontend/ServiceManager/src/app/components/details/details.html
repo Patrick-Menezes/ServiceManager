@@ -1,11 +1,11 @@
-<h1>details works!</h1>
+
 
 {{MesageResponse}}
 
 @if (OrderDetail$| async; as orderDetails) {
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Order ID: {{ orderDetails.id}}</h5>
+     
       <h5 class="card-text">Cliente: {{  orderDetails.clientName }}</h5>
       <p class="card-text">Descrição: {{ orderDetails.description }}</p>
       <p class="card-text">Status: 

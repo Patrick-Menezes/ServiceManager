@@ -1,11 +1,11 @@
 <form [formGroup]=" NewOrderForm" (ngSubmit)=" addOrder() ">
-  <div>
-    <label for="ClientName">Client Name:</label>
-    <input id="ClientName" formControlName="ClientName" />
+  <div class="mb-3">
+    <label for="ClientName" class="form-label">Client Name:</label>
+    <input id="ClientName" formControlName="ClientName"  class="form-control"/>
   </div>
   <div>
-    <label for="Description">Service Description:</label>
-    <input id="Description" formControlName="Description" />
+    <label for="Description" class="form-label">Service Description:</label>
+    <input id="Description" formControlName="Description"  class="form-control"/>
   </div>
   <div>
     <label for="CreatAt">Service Date:</label>
@@ -19,7 +19,7 @@
       <option value="3">Completed</option>
     </select>
   </div>
-  <button type="submit" [disabled]=" NewOrderForm.invalid ">Add Order</button>
+  <button type="submit" [disabled]=" NewOrderForm.invalid ">Adicionar Ordem de serviço</button>
 
 
 

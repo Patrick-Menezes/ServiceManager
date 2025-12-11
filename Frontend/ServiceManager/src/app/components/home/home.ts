@@ -13,7 +13,7 @@ standalone :true;
   selector: 'app-home',
 imports: [AsyncPipe],
   templateUrl: './home.html',
-  styleUrls: ['./home.css'],
+ 
 
   
 })

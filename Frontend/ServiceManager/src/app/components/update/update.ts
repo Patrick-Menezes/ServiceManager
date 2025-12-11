@@ -7,6 +7,7 @@ import { ConectionService } from '../../services/conection-service';
 import  {Orderstatus} from '../../interface/Orderstatus'
 // Importe as interfaces e enums corretamente
 import { IserviceManager,  } from '../../interface/IOrderServiceManager'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update',
@@ -15,21 +16,23 @@ import { IserviceManager,  } from '../../interface/IOrderServiceManager';
   templateUrl: './update.html',
 })
 export class Update implements OnInit {
-
+  
   private conectionService = inject(ConectionService);
   private route = inject(ActivatedRoute);
-
+  private router = inject(Router);
   // Mapeia o Enum para ser usado facilmente no template HTML (opcional)
   orderStatuses = Orderstatus ; 
   statusKeys = Object.keys(Orderstatus).filter(k => typeof Orderstatus[k as any] === 'number');
-
+  MesageResponse!: string;
   NewOrderForm = new FormGroup({
     // Renomeie os formControls para bater com a interface IserviceManager
     clientName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('', [Validators.required, Validators.minLength(5)]),
     // O tipo date pode vir como string da API, mesmo sendo tipo Date na interface
     creatAt: new FormControl('', Validators.required), 
-    status: new FormControl<number | null>(null, Validators.required) // Defina o tipo como number
+    status: new FormControl<number | null>(null, Validators.required) 
+
+   
   });
   
 private orderId: number | null = null;
@@ -79,9 +82,7 @@ private orderId: number | null = null;
 
         // 3. Crie o objeto final, incluindo o ID e os dados corrigidos
         const updatedOrderData = {
-            // Se o seu DTO no backend se chama OrderDTO e espera 'Id' ou 'id', inclua-o
-            // Verifique a capitalização (Id ou id) com seu backend. 
-            // Usarei 'id' minúsculo como é comum em TypeScript, mas você pode ter que usar 'Id'.
+           
             id: this.orderId, 
             clientName: formData.clientName,
             description: formData.description,
@@ -89,10 +90,19 @@ private orderId: number | null = null;
             // Envie o status como um número
             status: statusAsNumber 
         };
-
+        this.MesageResponse="Atualização concluida com sucesso";
         this.conectionService.PatchOrder(this.orderId, updatedOrderData).subscribe ({
-            // ... (restante do código)
-        });
+         
+          next: (response) => {
+     
+      setTimeout(() => { 
+     this.router.navigate(['details',this.orderId]);
+     this.MesageResponse = '';
+    }, 1000);
+      
+    
+    },
+    });
 
     } else {
         console.warn('Formulário inválido ou ID do pedido ausente.');

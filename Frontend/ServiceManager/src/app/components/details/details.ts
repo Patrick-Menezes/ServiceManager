@@ -54,7 +54,7 @@ DeleteOrder(id: number): void {
        
       
       setTimeout(() => {
-      console.log('Exclusão concluída. Botão ativado novamente.');  
+      console.log('Exclusão concluída.');  
     this.router.navigate(['/Home']);
      this.MesageResponse = '';
     }, 2000);
