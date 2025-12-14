@@ -9,7 +9,7 @@ import{ReactiveFormsModule,FormGroup, FormControl, Validators} from '@angular/fo
 
 })
 export class AddOrder {
-
+ MesageResponse!: string;
   private conectionService = inject(ConectionService);
 
 
@@ -26,11 +26,19 @@ export class AddOrder {
 
 addOrder(): void {
   if (this.NewOrderForm.valid) {
-  
+       this.MesageResponse="Ordem adicionada com sucesso"
       this.conectionService.CreateOrder(this.NewOrderForm.value as IserviceManager).subscribe
   ({next: (response) => {
-        console.log('Order successfully created:', response);
+
+
+      
         this.NewOrderForm.reset();
+
+      setTimeout(() => { 
+     this.MesageResponse = '';
+    },50);
+      
+
       },
       error: (error) => {
         console.error('Error creating order:', error);

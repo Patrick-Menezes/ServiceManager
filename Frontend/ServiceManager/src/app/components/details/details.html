@@ -1,9 +1,11 @@
 
 
-{{MesageResponse}}
+
+<div class="container text-center">
+
 
 @if (OrderDetail$| async; as orderDetails) {
-  <div class="card">
+  <div class="card text-center ">
     <div class="card-body">
      
       <h5 class="card-text">Cliente: {{  orderDetails.clientName }}</h5>
@@ -50,3 +52,10 @@
 }
 
 
+</div>
+
+@if(MesageResponse){
+    <div class="alert alert-success mt-3" role="alert">
+ {{ MesageResponse }}
+</div>
+}

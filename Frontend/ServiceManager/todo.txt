@@ -2,7 +2,7 @@
 -page include      = DONE
 -page delete       = DONE
 -page update       = DONE
--customize         = inProgress
+-customize         = DONE
  
 
 

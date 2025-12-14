@@ -1,27 +1,72 @@
-<form [formGroup]=" NewOrderForm" (ngSubmit)=" addOrder() ">
-  <div class="mb-3">
-    <label for="ClientName" class="form-label">Client Name:</label>
-    <input id="ClientName" formControlName="ClientName"  class="form-control"/>
-  </div>
-  <div>
-    <label for="Description" class="form-label">Service Description:</label>
-    <input id="Description" formControlName="Description"  class="form-control"/>
-  </div>
-  <div>
-    <label for="CreatAt">Service Date:</label>
-    <input id="CreatAt" type="date" formControlName="CreatAt" />
-  </div>
-  <div>
-    <label for="orderStatus">Status:</label>
-    <select id="orderStatus" formControlName="orderStatus">
-      <option value="1">Pending</option>
-      <option value="2">In Progress</option>
-      <option value="3">Completed</option>
-    </select>
-  </div>
-  <button type="submit" [disabled]=" NewOrderForm.invalid ">Adicionar Ordem de serviço</button>
+
+@if(MesageResponse){
+    <div class="alert alert-success" role="alert">
+ {{ MesageResponse }}
+</div>
+}
 
 
+ 
 
+<form [formGroup]="NewOrderForm" (ngSubmit)="addOrder()" class="p-4 border rounded-3 shadow-sm bg-light">
+    
+    <h3 class="mb-4 text-primary">Detalhes da Nova Ordem de Serviço</h3>
 
+    <div class="row mb-3">
+        
+        <div class="col-md-6 mb-3 mb-md-0">
+            <label for="ClientName" class="form-label fw-bold">Nome do Cliente:</label>
+            <input 
+                id="ClientName" 
+                formControlName="ClientName" 
+                class="form-control" 
+                placeholder="Ex: João da Silva / Empresa XYZ"
+            />
+        </div>
+
+        <div class="col-md-10">
+            <label for="Description" class="form-label fw-bold">Descrição do Serviço:</label>
+            <input 
+                id="Description" 
+                formControlName="Description" 
+                class="form-control"
+                placeholder="Ex: Manutenção preventiva do servidor"
+            />
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        
+        <div class="col-md-6 mb-3 mb-md-0">
+            <label for="CreatAt" class="form-label fw-bold">Data do Serviço:</label>
+            <input 
+                id="CreatAt" 
+                type="date" 
+                formControlName="CreatAt" 
+                class="form-control"
+            />
+        </div>
+
+        <div class="col-md-6">
+            <label for="orderStatus" class="form-label fw-bold">Status:</label>
+            <select id="orderStatus" formControlName="orderStatus" class="form-select">
+                <option value="" disabled>-- Selecione o Status --</option>
+                <option value="1">Pendente</option>
+                <option value="2">Em Progresso</option>
+                <option value="3">Concluído</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button 
+            type="submit" 
+            [disabled]="NewOrderForm.invalid" 
+            class="btn btn-primary btn-lg"
+        >
+            <i class="bi bi-check-circle-fill me-2"></i> Adicionar Ordem de Serviço
+        </button>
+    </div>
+
+</form>
 

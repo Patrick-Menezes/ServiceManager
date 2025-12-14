@@ -1,1 +1,8 @@
-<li [routerLink]="route()">{{label()}}</li>
+<a 
+    [routerLink]="route()" 
+    class="nav-link text-light fw-bold" 
+    routerLinkActive="active" 
+    [ngStyle]="{'cursor': 'pointer'}"
+>
+    {{ label() }}
+</a>
