@@ -1,0 +1,60 @@
+
+
+
+<h3 class="text-center mt-3">Ordens abertas</h3>
+
+<div class="container text-center">
+ <div class="row">
+@if (ServiceManagerList$ | async; as OrdersList) { 
+ 
+    
+    @if (OrdersList.length > 0) {
+      
+      @for (Orders of OrdersList; track Orders.id) 
+      {   
+         <div class="col-6">
+        <div class="orlders card mb-3">  
+        
+          <div class="card-body">
+            
+            <h5 class="card-title">Order ID: {{ Orders.id }}</h5>
+            <h5 class="card-text">Cliente: {{ Orders.clientName }}</h5>
+            <p class="card-text">Descrição: {{ Orders.description }}</p>
+            
+            <p class="card-text">Status: 
+              @switch(Orders.status) {
+                @case(1) {
+                  <span class="badge bg-primary">Aberto</span>
+                }
+                @case(2) {
+                  <span class="badge bg-warning text-dark">Em Progresso</span>
+                }
+                @case(3) {
+                  <span class="badge bg-success">Finalizado</span>
+                }
+                @default {
+                  <span class="badge bg-secondary">Desconhecido</span>
+                }
+              }
+          
+            </p>
+
+            <button class="btn btn-info" (click)="viewDetails(Orders.id)">Ver Detalhes</button>
+            </div>
+          </div>
+
+           </div>
+        }
+      } @else {
+      <p>Nenhum pedido encontrado.</p>
+    }
+    
+
+ 
+} @else {
+  <p>Carregando pedidos...</p>
+}
+
+</div>
+</div>
+

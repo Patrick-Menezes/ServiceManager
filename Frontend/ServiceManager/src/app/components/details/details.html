@@ -1,0 +1,61 @@
+
+
+
+<div class="container text-center">
+
+
+@if (OrderDetail$| async; as orderDetails) {
+  <div class="card text-center ">
+    <div class="card-body">
+     
+      <h5 class="card-text">Cliente: {{  orderDetails.clientName }}</h5>
+      <p class="card-text">Descrição: {{ orderDetails.description }}</p>
+      <p class="card-text">Status: 
+        @switch( orderDetails.status) {
+          @case(1) {
+            <span class="badge bg-primary">Aberto</span>
+          }
+          @case(2) {
+            <span class="badge bg-warning text-dark">Em Progresso</span>
+          }
+          @case(3) {
+            <span class="badge bg-success">Finalizado</span>
+          }
+          @default {
+            <span class="badge bg-secondary">Desconhecido</span>
+          }
+        }
+      </p>
+
+      <button class="btn btn-secondary me-2" routerLink="/update/{{orderDetails.id }}">Editar Ordem</button>
+
+     @if(CanDelete) {
+          <h3>Deseja realmente deletar esta orderm de serviço?</h3>
+        <button class="btn btn-danger" (click)="DeleteOrder(orderDetails.id)">Confirmar</button>
+        <button class="btn btn-secondary ms-2" (click)="toggleDeleteConfirmation(false)">Cancelar</button>
+     }@else{
+        <button class="btn btn-danger" (click)="toggleDeleteConfirmation(true)">Excluir Pedido</button>
+     }
+
+
+
+    </div>
+  </div>
+} @else {
+  <p>Carregando detalhes do pedido...</p>
+
+
+
+
+
+
+}
+
+
+</div>
+
+@if(MesageResponse){
+    <div class="alert alert-success mt-3" role="alert">
+ {{ MesageResponse }}
+</div>
+}

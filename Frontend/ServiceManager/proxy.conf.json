@@ -1,0 +1,9 @@
+{
+  "/swagger": {
+    "target": "https://localhost:7138",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "rejectUnauthorized": false
+  }
+}
